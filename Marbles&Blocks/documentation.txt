@@ -1,0 +1,5 @@
+10:12 - Start
+10:29 - Wall texture done v1
+10:33 - Block texture done v1
+10:36 - Ball and floor texture done v1
+10:42 - Create new project and import textures
