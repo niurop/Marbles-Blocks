@@ -5,44 +5,424 @@
 	<meta name='viewport' content='width=device-width, user-scalable=no' />
 	<link id='-gd-engine-icon' rel='icon' type='image/png' href='HTML_export/favicon.png' />
 	<title>Marbles&Blocks</title>
-	<style>
-	  body {
-	    margin-left: auto;
-	    margin-right: auto;
-	    margin-bottom: 100px;
-	    max-width: 1280px;
-	    background-color: #cccccc;
-	  }
-	  
-	  h1 {
-	    text-align: center;
-	  }
-	  
-	  .made_by {
-	    margin-top: -3ch;
-	    float: right;
-	  }
-	
-	</style>
+	<link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <h1><img src="Marbles&Blocks.png" alt="Marbles&Blocks" width="1280" height="744"/></h1>
-  <span class="made_by">by Marek (Niurop) Zielina</span>
+   <div id="content_background">
+    <h1><img src="pictures/Marbles&Blocks.png" alt="Marbles&Blocks" width="1280" height="744"/></h1>
+    <span class="made_by">by Marek (Niurop) Zielina</span>
 
-  <h1><a href="HTML_export/index.html">Play the game!</a></h1>
+    <h1><a href="HTML_export/index.html">Play the game!</a></h1>
 
-  <h2>Hall of fame</h2>
-  <hr/>
-  If You want to get here send me:
-  <ul>
-    <li>Screenshot of the final screen with Your time and number of restarts.</li>
-    <li>Your name or nick.</li>
-    <li>Possibly a link for others to see You (like Your webpage, github account or anything else).</li>
-  </ul>
-  The thing is, You need to do it before Sunday (07.08.2021).<br/><br/>
+    <h2 id="HALLOFFALE">Hall of fame</h2>
+    Here are the only people who were able to finish the game in the first week of its release without any help.
+    <hr/><h3>Chmielewska Nikola</h3>
+    <img src="pictures/NC_proof.jpg"/>
+    <h3>Księżyk Damian</h3>
+    <img src="pictures/KD_proof.jpg"/>
+    <h3>Zielina Marek</h3> (I am the creator, so no points for me :P )
+    <img src="pictures/MZ_proof.jpg"/>
+    <hr/>
+
+    <p>Did You see the times in the <a href="#HALLOFFALE">Hall Of Fame</a>? <br/>
+    I am the creator, who knew all the mechanics, designed all the levels and knew all the solutions; and it still took me 40 minutes and 4 repeats...<br/><br/>
+    If nothing else, this should tell You that this game is REALLY HARD! (I get that a lot)
+    </p>
+
+    <hr/>
+    <h1> TOC (table of contents) </h1>
+    <ol>
+      <li><a href="#motivation">Motivation</a></li>
+      <li><a href="#thebignings">The beginnings</a></li>
+      <li><a href="#gameidea">Game idea</a></li>
+      <li><a href="#codingstarts">Lets start "coding"</a></li>
+      <li><a href="#bugfixing">Bugfixing</a></li>
+      <li><a href="#theui">The UI</a></li>
+      <li><a href="#leveldesign">The level design</a></li>
+    </ol>
+    <table>
+      <tr>
+        <td><a href="#level_1">Level 1</a></td>
+        <td><a href="#level_2">Level 2</a></td>
+        <td><a href="#level_3">Level 3</a></td>
+        <td><a href="#level_4">Level 4</a></td>
+        <td><a href="#level_5">Level 5</a></td>
+      </tr>
+      <tr>
+        <td><a href="#level_6">Level 6</a></td>
+        <td><a href="#level_7">Level 7</a></td>
+        <td><a href="#level_8">Level 8</a></td>
+        <td><a href="#level_9">Level 9</a></td>
+        <td><a href="#level_10">Level 10</a></td>
+      </tr>
+      <tr>
+        <td><a href="#level_11">Level 11</a></td>
+        <td><a href="#level_12">Level 12</a></td>
+        <td><a href="#level_13">Level 13</a></td>
+        <td><a href="#level_14">Level 14</a></td>
+        <td><a href="#level_15">Level 15</a></td>
+      </tr>
+      <tr>
+        <td><a href="#level_16">Level 16</a></td>
+        <td><a href="#level_17">Level 17</a></td>
+        <td><a href="#level_18">Level 18</a></td>
+        <td><a href="#level_19">Level 19</a></td>
+        <td><a href="#level_20">Level 20</a></td>
+      </tr>
+      <tr>
+        <td><a href="#level_21">Level 21</a></td>
+        <td><a href="#level_22">Level 22</a></td>
+        <td><a href="#level_23">Level 23</a></td>
+        <td><a href="#level_24">Level 24</a></td>
+        <td><a href="#level_25">Level 25</a></td>
+      </tr>
+    </table>
+
+    <hr/>
+
+    <h2 id="motivation">Motivation</h2>
+    <p>
+      I am an oddball.<br/>
+      I have a lot of interesting ideas and I love to imagine perfect solutions to everything.<br/>
+      Recently, I was thinking of creating the "perfect" RTS game.<br/>
+      Having thought about it for weeks, I was sure to consider everything.<br/>
+      So I got to making it.<br/>
+      And it turns out, I did not have the skills for to make it as I wanted to...<br/>
+      I have tested many approaches, but nothing seemed to work for me.<br/>
+      <br/>
+      So I have concluded, that I need to first make something simpler.<br/>
+      <br/>
+      Being me, I have decided for a challenge.<br/>
+      Since just making a game (not knowing how to) is too easy (...), why not put a time limit on myself.<br/>
+      Normally people use something like a week, 48 hours or the crazy ones use 24 hours.<br/>
+      So why not 8.<br/>
+      <br/>
+      And this is how this project has started! :D
+    </p>
+    <h2 id="thebignings">The beginnings</h2>
+    <p>
+      When working on the aforementioned RTS game, I was mostly working with Unity.<br/>
+      But I did not like it (especially the C# language; but I will not voice my critics of it here). <br/>
+      So I figured, why not use something else.<br/>
+      Godot, seems like a good option!<br/>
+      Since it is quite small, runs on Linux by default.<br/>
+      First I needed to learn the Godot language, but that was quick and easy...<br/>
+      Next I needed an idea for the game.<br/>
+      I thought, that a game which I would like to play would be awesome and I love thinking.<br/>
+      What better game to make in 8 hours then a logic one (simple platformer or a shooter would have been easier thou).<br/>
+      <br/>
+      So it was decided!<br/>
+    </p>
+    <h2 id="gameidea">Game idea</h2>
+    <p>
+      Since I already knew that it will be a logic puzzle game and I did not have much time, I figured, that the best idea would be to create a game with simple mechanics and simple graphics, so I could do it quickly and then focus on bughanting and level design.<br/>
+      With this, simple moving blocs with a generically shaped character would be the simplest, as I don't need to animate anything and the mechanics of moving is also simple.<br/>
+      Not the details.<br/>
+      Drawing boxes is simple, but they need to be distinguishable, so rounded corners should solve this problem without needing to draw any special textures.<br/>
+      As for the player, the simplest shape, that does not need animation, and is easily distinguishable from blocks is a ball.<br/>
+      This is going smoothly.<br/>
+      I still don't know, what the purpose of the game will be, but I already have some basics, so I draw them up.<br/>
+      <img style="float: left;" src="pictures/base_icon.png"/> This is the picture with all the graphics that I created in the first iteration. First I have create the gray block, by using an oval square, then moved it 8 pixels down, and connected with couple of vertical lines to have a proper border. Next I colored it gray with just two shades. At this point, I was thinking that some blocks should not be moveable, so I also created the green version by coloring it green. Next I have just drew a circle and filled black. But that looked out of place, so I created an oval light shape in the top right corner. This made it look a bit more 3D like. Then, I started thinking, that just one ball may be boring, so I have just colored it with 4 different colors.
+      <img style="float: left;" src="pictures/base_tile.png"/> I have also created a colored square for the floor.<br/>
+      <br/>
+      This was all the graphics I created for the game (it looks a bit different in the final version, but the idea is the same).<br/>
+      <br/>
+      Now for the logic.<br/>
+      <br/>
+      I figured that player would move the marbles using arrow keys on a grid.<br/>
+      Each time by one square, but if they would encounter the green box, they would also move the box.<br/>
+      But that would be to simple, so I wanted to add a logic that one marble can move only one block, two can move two, and so on.<br/>
+      With this, when calculating if You can move, I need to add up all the balls and subtract all the boxes.<br/>
+      This gave me an idea, to create a force number for each marble which by default is 1, and if a marble tries to move another, then it transfers its force forward, but the block uses up the force.<br/>
+      With this my mind wondered what if a block would have more than 0 force at the end...<br/>
+      Then it should move more blocks!<br/>
+      <br/>
+      But what if I would have a marble, with more then 1 force at the end?<br/>
+      <br/>
+      It obviously should move more squares.<br/>
+      But then it hit me.<br/>
+      Since it is a ball, it should not have much friction (unlike boxes), so it should roll as far as possible.<br/>
+      <br/>
+      With this I figured I should emulate Newton's Cradle in some simple form.<br/>
+      <br/>
+      <br/>
+      Now only the goal of the game remains...<br/>
+      <br/>
+      Since I have already used up something like 1 hour of my time, I thought of something simple.<br/>
+      The marbles should just land in the corresponding colored circle (so I also quickly draw it up).<br/>
+      <br/>
+      Since I also love speed running, I decided to make the game have 25 levels without the ability to redo Your moves, so making mistakes will cost You.<br/>
+      Thus the score You get is the time and the number of restarts.
+    </p>
+    <h2 id="codingstarts">Lets start "coding"</h2>
+    <p>
+      With everything set up, I've created a new project in Godot.<br/>
+      I did not know what to do.<br/>
+      Looking at the clock, I figured, I really need to do something.<br/>
+      So I have created a basic Godot scene for an entities (both marbles and block). The idea being that it should have all the logic of its movement and graphics.<br/>
+      It got a simple logic for the initial position so it fits the grid perfectly and that the z-index for drawing is correctly assigned depending on its position.<br/>
+      With this as a base, I have created 4 marbles and 1 block (the green one) as entities, by simply adding an image and a type.
+      <br/>
+      Next I have created the tile map for setting up a map.<br/>
+      It is created as 3 basic tilemap components in Godot and a list of standalone walls.<br/>
+      There is a floor tile map (with just one tile), offset by half a tile to the left and up, so it ends in the middle of the walls (this makes it, so the player does not see the edges of the floor).<br/>
+      Next there is a tile map of border walls, with 2 types of tiles; one for the back wall with z-index of -1 and the other for fron walls with index of 1000 (this way it always looks pseudo 3D).<br/>
+      Then there is a tile map for end points.<br/>
+      And finally, with the same positioning as with entities, there are wall entities, that can be placed freely (with z-index corresponding to their position).<br/>
+      <br/>
+      Everything topped up with a couple of functions to check if at a position (x,y) is a wall or a target.<br/>
+      <br/>
+      With this I have made the first level, and used it for testing everything else.<br/>
+      <br/>
+      After creating the first level, I went into the project settings, and set the screen size, so it contains exactly 40 by 25 blocks.<br/>
+      <br/>
+      And here came the problems...<br/>
+      <br/>
+      I've created a simple script for managing the user inputs.<br/>
+      It first made an array of all the marbles, all the movable blocks and combined them into a list of all entities.<br/>
+      Next in the main game loop, I check if any useful key is pressed, and derived direction from it.<br/>
+      <br/>
+      That was simple<br/>
+      <br/>
+      And then I needed to calculate what should move where...<br/>
+      And I did not know how to do it...<br/>
+      So I have started by simply moving the marbles without considering blocks.<br/>
+      This worked, but I still didn't know how to account for the blocks.<br/>
+      <br/>
+      So before moving I set the target of the marble and check if there is something.<br/>
+      With this, I assumed, that we are also trying to move the targeted object, so we do the same for them.<br/>
+      No if we just remember what are targeting and what is targeting us, we will create chains of movements.<br/>
+      So we just need to check what is in it and the job done right? :D<br/>
+      <br/>
+      Well, no...<br/>
+      <br/>
+      Here I needed to check what is the first entity in the chain, then follow the chain and account for different elements in it.<br/>
+      I spend 2 hours working out how to do it properly and settled on a recursive algorithm, with state machine for each entity.<br/>
+      <br/>
+      This is by no means a perfect approach but I did not have a lot of time (just 2 hours left).<br/>
+      <br/>
+      With this I had a working game.<br/>
+      But it had just one level.<br/>
+      <br/>
+      So I made, a couple and with this I finished the 8 hour time limit.<br/>
+      <br/>
+      I have launched the game and played it.<br/>
+      But it did not work correctly.<br/>
+      The marbles didn't want to bounce of each other properly (somewhat random) and the blocks did not move properly, not to mention the wired bug with marbles stopping half way.<br/>
+      <br/>
+      Thus it was a FAILURE!!!<br/>
+    </p>
+    <h2 id="bugfixing">Bugfixing</h2>
+    <p>
+      I have spent next 6 hours (for 14 hours in total), fixing these bugs...<br/>
+      It turns out, that I needed to keep track of a couple more state parameters and at a very specific state combination, the calculation did not propagate along the chain of influence...<br/>
+      <br/>
+      I have rewritten the code 5 times (I like the idea of coding with replacing instead of fixing).<br/>
+      But it finally worked!<br/>
+      <br/>
+      And surprisingly, nobody has found any bugs since!
+    </p>
+    <h2 id="theui">The UI</h2>
+    <p>
+      This was the simplest thing to do, as I just slammed some text into the game window.<br/>
+      I found a nice font (joystix monospace)<br/>
+      I measured it, so it would take exactly 2 grid spaces on the top.<br/>
+      I added a fade screen.<br/>
+      And made state machine to control the whole game (I replaced the standard _process function from the levels with process; this way I am controlling when the player has actual control).
+    </p>
+    <h2 id="leveldesign">The level design</h2>
+    <p>
+      This is actually the biggest part of the game, that took the second half of my time spent creating this game.<br/>
+      Each level is in some way unique and serve a specific purpose, culminating in the final level.
+    </p>
+    <h2 id="level_1">Level 1</h2>
+    <img src="pictures/level_1.png"/>
+    <p>
+      Level 1 is just a level, where player test how to move and sees that he needs to get the marble into the target circle.
+    </p>
+    
+    <h2 id="level_2">Level 2</h2>
+    <img src="pictures/level_2.png"/>
+    <p>
+      Level 2 shows player that he needs to be precise, and is a good test ground to practice.
+    </p>
+    <h2 id="level_3">Level 3</h2>
+    <img src="pictures/level_3.png"/>
+    <p>
+      Level 3 teaches how to move blocks.
+    </p>
+    
+    <h2 id="level_4">Level 4</h2>
+    <img src="pictures/level_4.png"/>
+    <p>
+      Level 4 shows that You cannot move two blocks with one marble, so You need to move one out of the way.<br/>
+      There is a risk that somebody will do this without falling for the trap, but then he will fall for it in other levels.
+    </p>
+    
+    <h2 id="level_5">Level 5</h2>
+    <img src="pictures/level_5.png"/>
+    <p>
+      Level 5 this level forces a player to move two blocks with two marbles.<br/>
+      Also, if for some reason player did not notice, that moving 2 blocks with one marble is impossible, I hope that here he will notice.<br/>
+      Additionally, in this level, most players will see that marbles can launch each other.
+    </p>
   
-  Sent it to niurop@gmail.com
-  <hr/>
-  On Sunday (07.08.2021), I will write a long explanation of why I created this game, how I did it and the description of every level (I don't want to spoil anything before closing the hall of fame).
+    <h2 id="level_6">Level 6</h2>
+    <img src="pictures/level_6.png"/>
+    <p>
+      Level 6 has the same structure as the level 2.<br/>
+      It shows that, different color marbles need to go to their respective color targets.<br/>
+      Also it teaches blocking the marbles, and more interesting movement patterns.
+    </p>
+ 
+    <h2 id="level_7">Level 7</h2>
+    <img src="pictures/level_7.png"/>
+    <p>
+      Level 7 has the same structure as the level 2 and level 6.<br/>
+      It was added as one of the last levels to show how white targets work and to force players to practice complex movement patterns.
+    </p>
+ 
+    <h2 id="level_8">Level 8</h2>
+    <img src="pictures/level_8.png"/>
+    <p>
+      Level 8 is the first level that I loved.<br/>
+      The main idea is to teach the player how to arrange marbles in the complex situations.<br/>
+      If You notice, You just need to move each marble one square to the center.<br/>
+      But this is tricky since, they always move in the same direction... unless blocked!<br/>
+      So if You notice some empty lines to the border, You can just go to one, and try going even further.<br/>
+      With this, two of them will stay in place, and the rest will move closer.<br/>
+      Do it with the other wall and job done!<br/>
+    </p>
+ 
+    <h2 id="level_9">Level 9</h2>
+    <img src="pictures/level_9.png"/>
+    <p>
+      Level 9 is a level focusing on controlling the marbles.<br/>
+      It can be a bit tricky since You need to rotate them with the gray boxes in a symmetric pattern.<br/>
+      Thus it teaches the player to manipulate the green boxes to help position the marbles.
+    </p>
+ 
+    <h2 id="level_10">Level 10</h2>
+    <img src="pictures/level_10.png"/>
+    <p>
+      Level 10 has 2 main ideas behind it.<br/>
+      First You need to not get stack on the first block; this shows how to remove certain blocks.<br/>
+      And then You need to find the target under one of the green boxes.
+    </p>
+ 
+    <h2 id="level_11">Level 11</h2>
+    <img src="pictures/level_11.png"/>
+    <p>
+      Level 11 takes what You have learned in all the previous 10 introductory levels, and checks if You can actually use it in more complex situation.<br/>
+      Also it test how good is You set up for the end if You want to do it quick.
+    </p>
+ 
+    <h2 id="level_12">Level 12</h2>
+    <img src="pictures/level_12.png"/>
+    <p>
+      Level 12 is just a breather. The is not much going on, so You can take a break.<br/>
+      In the mean time, the only way to pass this level is, to learn marble launching.
+    </p>
+ 
+    <h2 id="level_13">Level 13</h2>
+    <img src="pictures/level_13.png"/>
+    <p>
+      Level 13 is now a hardcore level after the easy one.<br/>
+      There are two ways of passing it.<br/>
+      The easy one being, to collect all the marbles together and clear the center.<br/>
+      And the other, much faster, is to create small opening to the targets, and then squeeze Your way thru (no recommended, unless You are speed running).
+    </p>
+ 
+    <h2 id="level_14">Level 14</h2>
+    <img src="pictures/level_14.png"/>
+    <p>
+      Level 14 is the introductory level into squeezing.<br/>
+      Here just getting to the end is not that hard (thou You can get stack).<br/>
+      The most important thing is to have a good setup at the end, so You can push the blockade and also to not block the final entrance (here it is actually harder to block the targets then to not block them).
+    </p>
+ 
+    <h2 id="level_15">Level 15</h2>
+    <img src="pictures/level_15.png"/>
+    <p>
+      The idea behind level 15 design, wast to have two marbles in different environments.<br/>
+      Thus while trying to get out one, means blocking of the other.<br/>
+      In reality, it is hard to block Yourself...
+    </p>
+ 
+    <h2 id="level_16">Level 16</h2>
+    <img src="pictures/level_16.png"/>
+    <p>
+      Level 16 is a deceiving level.<br/>
+      It seams that the main problem is getting marbles to the other side.<br/>
+      But in truth, the main idea is that You cannot finish the level, without blocking one of them together with its target.
+    </p>
+ 
+    <h2 id="level_17">Level 17</h2>
+    <img src="pictures/level_17.png"/>
+    <p>
+      Level 17 is just a harder version of <a href="#level_10">level 10</a>.
+    </p>
+ 
+    <h2 id="level_18">Level 18</h2>
+    <img src="pictures/level_18.png"/>
+    <p>
+      Level 18 is a level with interesting entrance.<br/>
+      It is deceptive, as there is a super easy way of entering by pushing in the blocks right next to the center one, but most people will try something much harder (often not working).
+    </p>
+ 
+    <h2 id="level_19">Level 19</h2>
+    <img src="pictures/level_19.png"/>
+    <p>
+      Level 19 is a more interesting version of <a href="#level_14">level 14</a>, mixed with the idea of <a href="#level_16">level 16</a> and a need to go back.<br/>
+      So You need to first rescue the green marble.<br/>
+      Then block it at the end. <br/>
+      All the while, not blocking Your way back.
+    </p>
+ 
+    <h2 id="level_20">Level 20</h2>
+    <img src="pictures/level_20.png"/>
+    <p>
+      Level 20 is just a more complex version of <a href="#level_15">level 15</a>.
+    </p>
+ 
+    <h2 id="level_21">Level 21</h2>
+    <img src="pictures/level_21.png"/>
+    <p>
+      The level 21 is arguably the most difficult level in the whole game...<br/>
+      It was not intentional, since I did it with simple goal in mind.<br/>
+      The goal was to force the player to block of multiple marbles at their targets before maneuvering the others.<br/>
+      Remember to leave some space for moving, so You can move all of the marbles in the same direction to finish the level.
+    </p>
+ 
+    <h2 id="level_22">Level 22</h2>
+    <img src="pictures/level_22.png"/>
+    <p>
+      Level 22 is a simple level, where You need to rotate the configuration of the marbles.<br/>
+      Here You will learn, that to do this, You need to first offset them, so they are on different lines.
+    </p>
+ 
+    <h2 id="level_23">Level 23</h2>
+    <img src="pictures/level_23.png"/>
+    <p>
+      Level 23 is the hardest version of the <a href="#level_14">level 14</a> and <a href="#level_19">level 19</a>.<br/>
+      Here You need to squeeze Your way at the last cross, and have a good set up for the end block.<br/>
+      It shows, that like in the <a href="#level_10">level 10</a>, <a href="#level_17">level 17</a> and <a href="#level_18">level 18</a>, You sometimes need to take blocks out to be able to get somewhere.
+
+    </p>
+ 
+    <h2 id="level_24">Level 24</h2>
+    <img src="pictures/level_24.png"/>
+    <p>
+      Level 24 is like <a href="#level_22">level 22</a>, but here You need to rotate the configuration of the two green blocks, to switch between moving horizontally and vertically.
+    </p>
+ 
+    <h2 id="level_25">Level 25</h2>
+    <img src="pictures/level_25.png"/>
+    <p>
+      Level 25 is the last level of the game, where You need to use everything You have learned before.<br/>
+      The main idea is, that You will not be able to simultaneously move all the marbles into the required spots.<br/>
+      So You need to trap them there.
+    </p>
+  </div>
 </body>
 </html>

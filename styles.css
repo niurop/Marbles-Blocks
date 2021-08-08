@@ -1,0 +1,76 @@
+@font-face {
+  font-family: joystix;
+  src: url("joystix.monospace.ttf");
+}
+
+body {
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 100px;
+    max-width: 800px;
+    background-color: #e9f7d6;
+}
+
+#content_background {
+  border-radius: 2ch;
+  border-width: 6px;
+  border-style: double;
+  border-color:steelblue;
+  background-color: #ffffff;
+
+  padding: 5ch;
+  padding-top: 3ch;
+}
+
+img {
+    max-width: 100%;
+    aspect-ratio: keep;
+    height: auto;
+    width: auto;
+}
+
+h1 {
+    text-align: center;
+}
+
+h1, h2, h3 {
+  font-family: joystix;
+}
+
+p {
+  text-align:justify;
+}
+
+.made_by {
+    margin-top: -3ch;
+    float: right;
+}
+
+
+li {
+  font-family: joystix;
+}
+
+td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: center;
+  font-family: joystix;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+table {
+  width: 100%;
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+
+hr {
+  border: 0;
+  height: 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
